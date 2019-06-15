@@ -1,7 +1,3 @@
 {
-    "python.pythonPath": "C:\\Users\\shino\\Anaconda3\\envs\\py37_cv2\\python.exe",
-    "python.terminal.activateEnvironment" :  false,
-    "terminal.integrated.shellArgs.windows": [
-       // "source activate py37_cv2"
-    ]
+    "python.pythonPath": "C:\\Users\\shino\\Anaconda3\\envs\\py36_cv2",
 }
