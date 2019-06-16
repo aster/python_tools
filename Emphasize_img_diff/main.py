@@ -19,12 +19,11 @@ def main():
     cv2.imwrite(bg_diff_path, fgmask)
 
 
-#----
-    blur = cv2.blur(fgmask ,(5,5))
+# ----blur filter
+    blur = cv2.blur(fgmask, (5, 5))
     bg_diff_path = './diff_filtered.jpg'
     cv2.imwrite(bg_diff_path, blur)
-#---
-
+# ---
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
