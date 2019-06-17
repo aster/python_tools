@@ -1,3 +1,8 @@
 {
     "python.pythonPath": "C:\\Users\\shino\\Anaconda3\\envs\\py36_cv2",
+    //change envs  >> source activate (env)
+    
+    //caution!!!
+    //debug env !== terminal env
+
 }
