@@ -1,14 +1,17 @@
 import csv
 import math
 import matplotlib.pyplot as plt
+import numpy as np
 
 x = []
 y = []
 breakX = []
 breakY = []
+indexX = []
+outX = []
+outY = []
 tmpT = 0
 dt = 100  # ms 無視
-
 thresholdFlag = False
 
 
@@ -38,7 +41,6 @@ for i in range(len(y)):
         if y[i] >= 2.5:
             appendData(i)
 
-# print(breakX)
 for i in range(len(breakY)):
     if (breakX[i] - tmpT > dt/1000):
         tmpT = breakX[i]
@@ -52,3 +54,21 @@ breakY = [i for i in breakY if i != 0]
 for i in range(len(breakY)):
     print(breakX[i], ",", breakY[i], ",")
     pass
+
+for i in range(len(breakX)):
+    indexX.append(x.index(breakX[i]))
+
+print(indexX)
+
+
+yData = np.array(y[indexX[0]:indexX[1]])
+maxIndex = [i for i, x in enumerate(yData) if x == np.min(yData)]
+print(maxIndex)
+
+if (len(maxIndex) == 1):
+    outX.append(indexX[0] + maxIndex[0])
+
+else:
+    outX.append(indexX[0] + math.floor((maxIndex[0]+maxIndex[-1])/2))
+
+print(outX)
