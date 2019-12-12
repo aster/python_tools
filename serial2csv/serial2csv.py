@@ -6,19 +6,19 @@ import os
 
 # 接続されてるCOMポート
 com_port = 'COM3'
-#保存したいファイル名
 
-# com = serial.Serial(com_port)
+com = serial.Serial(com_port)
+
 current_dir = os.getcwd().split('\\')[-1]
-exist_files = os.listdir()
-print(exist_files)
-file_name = "{}".format(current_dir) +'_01'
-print(file_name)
+file_name = "{}".format(current_dir)
 
-print('\n"{}"のデータを"{}"に記録します。'.format(com_port,file_name))
+print("今いるディレクトリは"+file_name+"です")
+file_num = input('データの番号を入力してください -> ').zfill(2)
+
+print('\n"{}"のデータを"{}"に記録します。'.format(com_port,file_name+'_'+file_num+'.csv'))
 print('データの取得を終了するときは"Ctrl+C"\n')
 
-sys.exit(0)
+file_name = file_name+'_'+file_num+'.csv'
 
 try:
     with open(file_name, 'w', newline='') as f:
@@ -28,6 +28,14 @@ try:
             line = com.readline()
             data = codecs.decode(line, 'utf-8', 'ignore')
             data = data[:-2]
+
+            #ここでdataを加工
+            #data -> 10005,3
+            a = 1
+            b = 1
+            data = data + "," + str(a) + "," + str(b)
+            #ここまで
+
             csvWriter.writerow(data.split(','))
             print(data.split(','))
 except KeyboardInterrupt:
