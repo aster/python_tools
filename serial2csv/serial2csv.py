@@ -18,6 +18,6 @@ while True:
     data = line
     # del data[-1]
     print (data)
-    csvWriter.writerow((bytes(data, 'UTF-8')))
+    csvWriter.writerow((bytes(data)))
 
 com.close()
