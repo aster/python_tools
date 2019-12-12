@@ -10,7 +10,7 @@ com = serial.Serial(com_port)
 f = open(file_name, 'wb')
 csvWriter = csv.writer(f)
 
-while false:
+while 0: 
 # while True:
     listData = []
     line = com.readline()
