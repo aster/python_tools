@@ -16,7 +16,7 @@ while True:
     line = com.readline()
     # data = line.split(",")
     data = line
-    del data[-1]
+    # del data[-1]
     print (data)
     csvWriter.writerow(data)
 
