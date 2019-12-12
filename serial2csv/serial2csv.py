@@ -1,5 +1,6 @@
 import serial
 import csv
+import codecs
 
 # 接続されてるCOMポート
 com_port = 'COM3'
@@ -14,10 +15,9 @@ csvWriter = csv.writer(f)
 while True:
     listData = []
     line = com.readline()
-    # data = line.split(",")
-    data = line
-    # del data[-1]
-    print (data)
-    csvWriter.writerow((bytearray(data,'UTF-8')))
+    data = codecs.decode(line, 'utf-8', 'ignore')
+    data = data[:-1]
+    print(data)
+    csvWriter.writerow(data.encode())
 
 com.close()
