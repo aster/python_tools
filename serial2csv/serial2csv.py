@@ -10,12 +10,13 @@ com = serial.Serial(com_port)
 f = open(file_name, 'wb')
 csvWriter = csv.writer(f)
 
-while True:
+while false:
+# while True:
     listData = []
     line = com.readline()
     data = line.split(",")
     del data[-1]
-    print data
+    print (data)
     csvWriter.writerow(data)
 
 com.close()
