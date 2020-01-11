@@ -3,6 +3,12 @@ import sys
 
 args = sys.argv
 
-def main():
-    with open(file) as f:
-        reader = csv.reader(f)
+for movie_index in range(1,6):
+    for position_index in rnage(1,4):
+#
+#def main():
+#    with open(file) as f:
+#        reader = csv.reader(f)
+        print(movie_index + " "+ position_index )
+
+        
