@@ -6,7 +6,7 @@ args = sys.argv
 
 #データを必要な部分だけに加工する
 def trimData(movie_index, position_index):
-    file_path = './0%d/0%d' % (movie_index, position_index)
+    file_path = './0%d/0%d.csv' % (movie_index, position_index)
     print(file_path)
          
 #同じ動画のフォルダ内にあるデータを結合する
