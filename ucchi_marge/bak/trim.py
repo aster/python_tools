@@ -1,6 +1,5 @@
 import csv
 import sys
-from pathlib import Path
 
 args = sys.argv
 
