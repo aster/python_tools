@@ -14,22 +14,29 @@ def getJoinDataList(movie_index, position_index):
     csv_list = list(glob.glob(file_path + "*.csv"))
     return csv_list
 
-
 # 同じ動画番号フォルダ内にあるデータを結合する
+
+
 def joinData(movie_index):
     print()
 
 
-# 動画の種類（1~5）でループ
-for movie_index in range(1, 6):
+# 動画の種類（1~5）でループ  一時的に6から2に
+for movie_index in range(1, 2):
     # 人の属性でループ 1:新入社員 2:1年目？ 3:ベテラン
     for position_index in range(1, 4):
         join_all_list = getJoinDataList(movie_index, position_index)
 
         for personal_data in join_all_list:
-            print(personal_data)
-            #個人のデータを加工して、出力用データに追加する
-            #0,1行目捨て,2行目から数字のインデックスの間を取得
-            #0列目捨て、1列目から6列分取得
-
-    # joinTrimmedData(movie_index)
+            # print(personal_data)
+            # 個人のデータを加工して、出力用データに追加する
+            # 0,1行目捨て,2行目から数字のインデックスの間を取得
+            # 0列目捨て、1列目から6列分取得
+            if position_index > 1:
+                break
+            with open(personal_data) as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    if not row[1].isdigit():
+                        break
+                    print(row[1:7])
