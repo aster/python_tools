@@ -4,12 +4,15 @@ from pathlib import Path
 
 args = sys.argv
 
-#データを必要な部分だけに加工する
+#結合するデータ一覧を取得する
 def trimData(movie_index, position_index):
-    file_path = './0%d/0%d.csv' % (movie_index, position_index)
+    file_path = './0%d/0%d/' % (movie_index, position_index)
     print(file_path)
+
+#データを結合する
          
-#同じ動画のフォルダ内にあるデータを結合する
+
+#同じ動画番号フォルダ内にあるデータを結合する
 def joinTrimmedData(movie_index):
     print()
     
