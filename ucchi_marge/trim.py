@@ -5,9 +5,12 @@ from pathlib import Path
 
 args = sys.argv
 
-# 結合するデータ一覧を取得する
-def getJoinDataList(movie_index, position_index):
+def getPath(movie_index, position_index):
     file_path = './0%d/0%d/' % (movie_index, position_index)
+    return file_path
+
+# 結合するデータ一覧を取得する
+def getJoinDataList(file_path):
     # csv_listに、例：動画1のベテラン20人分 のデータのPathが入ってる
     csv_list = list(glob.glob(file_path + "*.csv"))
     return csv_list
@@ -20,7 +23,9 @@ def joinData(movie_index):
 for movie_index in range(1, 2):
     # 人の属性でループ 1:新入社員 2:1年目？ 3:ベテラン
     for position_index in range(1, 4):
-        join_all_list = getJoinDataList(movie_index, position_index)
+
+        file_path = getPath(movie_index, position_index)
+        join_all_list = getJoinDataList(file_path)
 
         for personal_data in join_all_list:
             # 個人のデータを加工して、出力用データに追加する
@@ -40,4 +45,7 @@ for movie_index in range(1, 2):
                     elif not row[1].isdigit() :
                         break
 
-                    print(row[1:7])
+                    #ファイルに追記する
+                    with open('filepath', 'a') as f:
+                        print('aaa', file=f)
+                        print(row[1:7])
