@@ -14,15 +14,15 @@ def trimData(movie_index, position_index):
     return csv_list
 
 #データを結合する
-
          
 
 #同じ動画番号フォルダ内にあるデータを結合する
 def joinTrimmedData(movie_index):
     print()
     
-
+#動画の種類（1~5）でループ
 for movie_index in range(1,6):
+    #人の属性でループ 1:新入社員 2:1年目？ 3:ベテラン
     for position_index in range(1,4):
         #print(str(movie_index) + " "+ str(position_index) )
         trimData(movie_index,position_index)
