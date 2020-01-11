@@ -3,8 +3,6 @@ import sys
 import glob
 from pathlib import Path
 
-args = sys.argv
-
 def getPath(movie_index, position_index):
     file_path = './0%d/0%d/' % (movie_index, position_index)
     return file_path
@@ -14,10 +12,6 @@ def getJoinDataList(file_path):
     # csv_listに、例：動画1のベテラン20人分 のデータのPathが入ってる
     csv_list = list(glob.glob(file_path + "*.csv"))
     return csv_list
-
-# 同じ動画番号フォルダ内にあるデータを結合する
-def joinData(movie_index):
-    print()
 
 # 動画の種類（1~5）でループ  一時的に6から2に
 for movie_index in range(1, 6):
@@ -47,7 +41,4 @@ for movie_index in range(1, 6):
 
                     #ファイルに追記する
                     with open(file_path + 'all.csv', 'a') as ans_f:
-                        #add_data = [float(s) for s in row[1:7]]
-                        
                         print(*row[2:7],sep=',', file=ans_f)
-                        #print(row[1:7])
