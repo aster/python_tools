@@ -9,6 +9,6 @@ for movie_index in range(1,6):
 #def main():
 #    with open(file) as f:
 #        reader = csv.reader(f)
-        print(movie_index + " "+ position_index )
+        print(str(movie_index) + " "+ str(position_index) )
 
         
