@@ -20,7 +20,7 @@ def joinData(movie_index):
     print()
 
 # 動画の種類（1~5）でループ  一時的に6から2に
-for movie_index in range(1, 2):
+for movie_index in range(1, 6):
     # 人の属性でループ 1:新入社員 2:1年目？ 3:ベテラン
     for position_index in range(1, 4):
 
@@ -28,11 +28,11 @@ for movie_index in range(1, 2):
         join_all_list = getJoinDataList(file_path)
 
         for personal_data in join_all_list:
-            # 個人のデータを加工して、出力用データに追加する
+            # 個人のデータを加工
             # 0,1行目捨て,2行目から数字のインデックスの間を取得
             # 0列目捨て、1列目から6列分取得
-            if position_index > 1:
-                break
+            print(personal_data)
+
             with open(personal_data) as f:
                 reader = csv.reader(f)
                 first_2row = 0 
@@ -46,7 +46,8 @@ for movie_index in range(1, 2):
                         break
 
                     #ファイルに追記する
-                    with open(file_path + 'all.csv', 'a') as f:
-
-                        print(map(int(row[1:7])), file=f)
+                    with open(file_path + 'all.csv', 'a') as ans_f:
+                        #add_data = [float(s) for s in row[1:7]]
+                        
+                        print(*row[2:7],sep=',', file=ans_f)
                         #print(row[1:7])
