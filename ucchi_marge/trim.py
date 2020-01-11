@@ -1,5 +1,6 @@
 import csv
 import sys
+import glob
 from pathlib import Path
 
 args = sys.argv
@@ -7,8 +8,10 @@ args = sys.argv
 #結合するデータ一覧を取得する
 def trimData(movie_index, position_index):
     file_path = './0%d/0%d/' % (movie_index, position_index)
-    print(file_path)
-    csv_list = list(file_path.glob("*.csv"))
+
+    #csv_listに、例：動画1のベテラン20人分 のデータのPathが入ってる
+    csv_list = list(glob.glob(file_path + "*.csv"))
+    return csv_list
 
 #データを結合する
 
