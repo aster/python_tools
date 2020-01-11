@@ -46,6 +46,7 @@ for movie_index in range(1, 2):
                         break
 
                     #ファイルに追記する
-                    with open('filepath', 'a') as f:
-                        print('aaa', file=f)
-                        print(row[1:7])
+                    with open(file_path + 'all.csv', 'a') as f:
+
+                        print(map(int(row[1:7])), file=f)
+                        #print(row[1:7])
