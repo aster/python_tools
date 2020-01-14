@@ -42,3 +42,4 @@ for movie_index in range(1, 6):
                     #ファイルに追記する
                     with open(file_path + 'all.csv', 'a') as ans_f:
                         print(*row[2:7],sep=',', file=ans_f)
+
