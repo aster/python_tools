@@ -1,6 +1,7 @@
 import csv
 import sys
 import glob
+import os
 from pathlib import Path
 
 def getPath(movie_index, position_index):
@@ -9,13 +10,13 @@ def getPath(movie_index, position_index):
 
 # 結合するデータ一覧を取得する
 def getJoinDataList(file_path):
-    # csv_listに、例：動画1のベテラン20人分 のデータのPathが入ってる
+    # csv_listに、例：動画1のベテラン20人分 のデータのPathが入っている
     csv_list = list(glob.glob(file_path + "*.csv"))
     return csv_list
 
 # 動画の種類（1~5）でループ  一時的に6から2に
 for movie_index in range(1, 6):
-    # 人の属性でループ 1:新入社員 2:1年目？ 3:ベテラン
+    # 人の属性でループ 1:新入社員 2:1年目 3:ベテラン
     for position_index in range(1, 4):
 
         file_path = getPath(movie_index, position_index)
